@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Note_Fast R-CNN | Ruiguang Li</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Paper: Fast R-CNN R-CNNSteps Object Detection Object Recognition  Drawbacks Multi-stage Expensive in space and time Slow: no sharing computation  Two Challenges in Object Detection Numerous proposals">
+<meta name="keywords" content="Note,Fast R-CNN,Deep Learning,Machine Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Note_Fast R-CNN">
+<meta property="og:url" content="https://lrghust.github.io/2017/01/20/fast-r-cnn/index.html">
+<meta property="og:site_name" content="Ruiguang Li">
+<meta property="og:description" content="Paper: Fast R-CNN R-CNNSteps Object Detection Object Recognition  Drawbacks Multi-stage Expensive in space and time Slow: no sharing computation  Two Challenges in Object Detection Numerous proposals">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://lrghust.github.io/img/posts/multi-task-loss.png">
+<meta property="og:image" content="https://lrghust.github.io/img/posts/backward_function.png">
+<meta property="og:image" content="https://lrghust.github.io/img/posts/Trancated_SVD.png">
+<meta property="og:updated_time" content="2018-02-25T08:49:39.814Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Note_Fast R-CNN">
+<meta name="twitter:description" content="Paper: Fast R-CNN R-CNNSteps Object Detection Object Recognition  Drawbacks Multi-stage Expensive in space and time Slow: no sharing computation  Two Challenges in Object Detection Numerous proposals">
+<meta name="twitter:image" content="https://lrghust.github.io/img/posts/multi-task-loss.png">
+    
+
+    
+        <link rel="alternate" href="mailto:lrghust@gmail.com" title="Ruiguang Li" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/images/favicon.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Ruiguang Li</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="https://sites.google.com/view/ruiguangli">CV</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="https://sites.google.com/view/ruiguangli">CV</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/images/avatar.png" />
+            <h2 id="name">Ruiguang Li</h2>
+            <h3 id="title">Undergraduate CS student in HUST lrghust@gmail.com</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Wuhan, China</span>
+            <a id="follow" target="_blank" href="https://github.com/lrghust">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                8
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                14
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/lrghust" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://twitter.com/liruiguang" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://facebook.com/imrgli" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="http://weibo.com/ruiguangli" target="_blank" title="weibo" class=tooltip>
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="mailto:lrghust@gmail.com" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-fast-r-cnn" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Note_Fast R-CNN
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/01/20/fast-r-cnn/">
+            <time datetime="2017-01-20T07:55:33.000Z" itemprop="datePublished">2017-01-20</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/CNN/">CNN</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Deep-Learning/">Deep Learning</a>, <a class="tag-link" href="/tags/Fast-R-CNN/">Fast R-CNN</a>, <a class="tag-link" href="/tags/Machine-Learning/">Machine Learning</a>, <a class="tag-link" href="/tags/Note/">Note</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Paper: Fast R-CNN</p>
+<h2 id="R-CNN"><a href="#R-CNN" class="headerlink" title="R-CNN"></a>R-CNN</h2><h3 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h3><ol>
+<li>Object Detection</li>
+<li>Object Recognition</li>
+</ol>
+<h3 id="Drawbacks"><a href="#Drawbacks" class="headerlink" title="Drawbacks"></a>Drawbacks</h3><ol>
+<li>Multi-stage</li>
+<li>Expensive in space and time</li>
+<li>Slow: no sharing computation</li>
+</ol>
+<h3 id="Two-Challenges-in-Object-Detection"><a href="#Two-Challenges-in-Object-Detection" class="headerlink" title="Two Challenges in Object Detection"></a>Two Challenges in Object Detection</h3><ol>
+<li>Numerous proposals</li>
+<li>Rough localization needs to be refined</li>
+</ol>
+<h2 id="This-paper"><a href="#This-paper" class="headerlink" title="This paper:"></a>This paper:</h2><ul>
+<li>A single-stage training algorithm: classify proposals and refine locations</li>
+</ul>
+<h2 id="SPPnet"><a href="#SPPnet" class="headerlink" title="SPPnet"></a>SPPnet</h2><h3 id="Drawbacks-1"><a href="#Drawbacks-1" class="headerlink" title="Drawbacks"></a>Drawbacks</h3><ol>
+<li>Multi-stage pipeline: extracting features -&gt; fine-tuning a network with log loss -&gt; training SVMs -&gt; fitting bounding-box regressors</li>
+<li>Cannot update convolutional layers, limits the accuracy of very deep networks</li>
+</ol>
+<h2 id="Fast-R-CNN"><a href="#Fast-R-CNN" class="headerlink" title="Fast R-CNN"></a>Fast R-CNN</h2><h3 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h3><ol>
+<li>Higher detection quality</li>
+<li>Single-stage,multi-task loss</li>
+<li>Update all network layers</li>
+<li>No disk storage</li>
+</ol>
+<h3 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h3><ol>
+<li>Input: Take an entire image and object proposals as input</li>
+<li>A feature map: by processing the whole image with several conv layers and max pooling layers</li>
+<li>Feature vector: fixed-length, extracted from the feature map by a RoI pooling layer for each object proposal</li>
+<li>Two output layers: each feature vector fed into FCs, branch into two output layers:<ul>
+<li>K classes softmax layer + a catch-all class</li>
+<li>Four-tuple, refined bounding-box position for one of the K classes</li>
+</ul>
+</li>
+</ol>
+<h4 id="RoI-pooling-layer"><a href="#RoI-pooling-layer" class="headerlink" title="RoI pooling layer"></a>RoI pooling layer</h4><p>Divide the h<em> w RoI window into an H</em> W grid, size of sub-window is h/H*w/W, do max-pooling in each sub-window</p>
+<h4 id="Transform-a-pre-trained-network-to-a-Fast-R-CNN"><a href="#Transform-a-pre-trained-network-to-a-Fast-R-CNN" class="headerlink" title="Transform a pre-trained network to a Fast R-CNN"></a>Transform a pre-trained network to a Fast R-CNN</h4><ol>
+<li>Replace the last max-pooling layer by RoI pooling layer</li>
+<li>Replace the last fully connected layer and softmax by the two output layers mentioned above(K+1 softmax and bounding-box regressors)</li>
+<li>Replace the input by a whole image and RoIs</li>
+</ol>
+<h4 id="Multi-task-loss"><a href="#Multi-task-loss" class="headerlink" title="Multi-task loss"></a>Multi-task loss</h4><p>Note two outputs as classification and location</p>
+<ul>
+<li>classification: p=(p0,p1,…,pK), a discrete probability distribution over K+1 classes</li>
+<li>location: tk=(txk,tyk,twk,thk), bounding-box regression offsets, for K classes</li>
+</ul>
+<p>Each training RoI is labeled: u - ground-truth class v - ground-truth bounding-box regression target</p>
+<p><strong>Multi-task loss L:</strong><br><img src="/img/posts/multi-task-loss.png" alt="Multi-task loss"></p>
+<pre><code>Lcls: log loss for u
+lamda[]: Iverson function
+Lloc(tu,v)=Sigma smoothL1(tiu-vi)
+smoothL1(x)=0.5x^x, |x|&lt;1
+            |x|-0.5, otherwise
+</code></pre><h4 id="Mini-batch-sampling"><a href="#Mini-batch-sampling" class="headerlink" title="Mini-batch sampling"></a>Mini-batch sampling</h4><ul>
+<li>size of mini-batch: R=128=2*64, consisting of N=2 images and 64 RoIs in each image</li>
+<li>25% of RoIs have IoU over 0.5, foreground object class</li>
+<li>remaining RoIs have IoU between 0.1 and 0.5, background, u=0</li>
+<li>images are flipped horizontally with probability 0.5, aiming to data augmentation</li>
+</ul>
+<h4 id="Backward-function"><a href="#Backward-function" class="headerlink" title="Backward function"></a>Backward function</h4><p><img src="/img/posts/backward_function.png" alt="backward function"></p>
+<pre><code>i* (r,j): the index of output by doing max-pooling on the j-th sub-
+        window, the r-th RoI
+</code></pre><ul>
+<li>if i=i* (r,j), accumulate the partial derivative(with respect to yrj)</li>
+</ul>
+<h3 id="Scale-invariance"><a href="#Scale-invariance" class="headerlink" title="Scale invariance(?)"></a>Scale invariance(?)</h3><ol>
+<li>brute force learning</li>
+<li>image pyramids</li>
+</ol>
+<h2 id="Fast-R-CNN-Detection"><a href="#Fast-R-CNN-Detection" class="headerlink" title="Fast R-CNN Detection"></a>Fast R-CNN Detection</h2><ol>
+<li>take an image(or an image pyramid) and a list of object proposals as input</li>
+<li>run a forward pass to score</li>
+<li>output: a class probability distribution and a set of predicted bounding box offsets</li>
+<li>for each RoI r, using the probability as detection confidence for each class k, then perform non-maximum suppression</li>
+</ol>
+<h3 id="Trancated-SVD"><a href="#Trancated-SVD" class="headerlink" title="Trancated SVD"></a>Trancated SVD</h3><p><img src="/img/posts/Trancated_SVD.png" alt="Trancated SVD"></p>
+<ul>
+<li>Compress large fully connected layers by trancated SVD to accelerate</li>
+<li>replace one fully connected layer corresponding to W by two fc layers, with matrix weight U and ΣtVT respectively</li>
+</ul>
+<h2 id="Design-Evaluation-experimentally"><a href="#Design-Evaluation-experimentally" class="headerlink" title="Design Evaluation(experimentally)"></a>Design Evaluation(experimentally)</h2><ol>
+<li>Multi-task training improves the classification accuracy</li>
+<li>Scale-invariance: Single scale processing offers the best tradeoff between the speed and accuracy</li>
+<li>More-training data improve the detection accuracy. The paper doesn’t mention about the problem of saturating with the increasing of dataset.</li>
+<li>Softmax introduce competetion between classes when scoring a RoI. Softmax slightly outperfoming SVM.</li>
+<li>Proposals: there are two types of object detector:<ul>
+<li>use a <strong>sparse</strong> set of proposals: improves Fast R-CNN accuracy</li>
+<li>use a <strong>dense</strong> set of proposals</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>Using selective search, the accuracy improves first and falls slightly soon with the increasing number of proposals</li>
+<li>Using densely generated boxes, adding random dense boxes and using only dense boxes all decrease the detection quality</li>
+</ul>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>This paper proposes Fast R-CNN, a clean and fast update to RNN and SPPnet.<br>Furthermore, this paper finds that sparse set of proposals improves the detection quality than dense one by using Fast R-CNN. There may exists new ways to allow dense set to perform as well as sparse one, by which we can accelerate object detection and improve the accuracy.</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://lrghust.github.io/2017/01/20/fast-r-cnn/" data-id="cje2kmaxh00024pwd2enp5m45" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://lrghust.github.io/2017/01/20/fast-r-cnn/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://lrghust.github.io/2017/01/20/fast-r-cnn/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/02/13/seq-nms/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Note_SEQ-NMS for Video Object Detection
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2017/01/20/imagenet-classification-with-deep-convolutional-neural-networks/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Note_Imagenet Classification with Deep Convolutional Neural Networks</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CNN/">CNN</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CNN/NMS/">NMS</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Graph/">Graph</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SeqNMS/">SeqNMS</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/SeqNMS/Code/">Code</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Stereo/">Stereo</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CNN/">CNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Calibrate/">Calibrate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code/">Code</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Distance/">Distance</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fast-R-CNN/">Fast R-CNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graph/">Graph</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NMS/">NMS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SeqNMS/">SeqNMS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stereo-Camera/">Stereo Camera</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Video/">Video</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Video-Object-Detection/">Video Object Detection</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/Calibrate/" style="font-size: 10px;">Calibrate</a> <a href="/tags/Code/" style="font-size: 16.67px;">Code</a> <a href="/tags/Deep-Learning/" style="font-size: 16.67px;">Deep Learning</a> <a href="/tags/Distance/" style="font-size: 10px;">Distance</a> <a href="/tags/Fast-R-CNN/" style="font-size: 10px;">Fast R-CNN</a> <a href="/tags/Graph/" style="font-size: 10px;">Graph</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/NMS/" style="font-size: 10px;">NMS</a> <a href="/tags/Note/" style="font-size: 20px;">Note</a> <a href="/tags/SeqNMS/" style="font-size: 16.67px;">SeqNMS</a> <a href="/tags/Stereo-Camera/" style="font-size: 10px;">Stereo Camera</a> <a href="/tags/Video/" style="font-size: 10px;">Video</a> <a href="/tags/Video-Object-Detection/" style="font-size: 13.33px;">Video Object Detection</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://blog.codedragon.tech">Zhihao Chen</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://jonassenli.com">Muchen Li</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/06/26/softnms/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CNN/">CNN</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/CNN/NMS/">NMS</a></p>
+                            <p class="item-title"><a href="/2017/06/26/softnms/" class="title">Soft-NMS</a></p>
+                            <p class="item-date"><time datetime="2017-06-26T11:24:26.000Z" itemprop="datePublished">2017-06-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/04/23/update-seq-nms/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SeqNMS/">SeqNMS</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/SeqNMS/Code/">Code</a></p>
+                            <p class="item-title"><a href="/2017/04/23/update-seq-nms/" class="title">Update_Seq-NMS</a></p>
+                            <p class="item-date"><time datetime="2017-04-23T03:13:51.000Z" itemprop="datePublished">2017-04-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/04/20/densesubgraph/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Graph/">Graph</a></p>
+                            <p class="item-title"><a href="/2017/04/20/densesubgraph/" class="title">Dense Subgraph</a></p>
+                            <p class="item-date"><time datetime="2017-04-20T10:37:56.000Z" itemprop="datePublished">2017-04-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/02/19/stereo/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Stereo/">Stereo</a></p>
+                            <p class="item-title"><a href="/2017/02/19/stereo/" class="title">Stereo Camera</a></p>
+                            <p class="item-date"><time datetime="2017-02-19T15:42:55.000Z" itemprop="datePublished">2017-02-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/02/19/seq-nms-implementation/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SeqNMS/">SeqNMS</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/SeqNMS/Code/">Code</a></p>
+                            <p class="item-title"><a href="/2017/02/19/seq-nms-implementation/" class="title">Implement the method of Seq-NMS</a></p>
+                            <p class="item-date"><time datetime="2017-02-19T15:20:01.000Z" itemprop="datePublished">2017-02-19</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 Ruiguang Li<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'https://lrghust.github.io/2017/01/20/fast-r-cnn/';
+        
+        this.page.identifier = 'fast-r-cnn';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'lrghust' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

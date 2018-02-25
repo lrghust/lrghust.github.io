@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Note_Imagenet Classification with Deep Convolutional Neural Networks | Ruiguang Li</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Paper:Imagenet Classification with Deep Convolutional Neural Networks 文章主要介绍的是作者团队参加ImageNet2010、2012比赛时设计的CNN模型，八层网络用了两块GPU训练了几天的时间。 结构带参数的层共八层：前五层是卷积层，后三层是全连通层；第一二个卷积层后跟响应归一化层；归一化层和第五个卷积层后跟最大池化层。 Fe">
+<meta name="keywords" content="Note,Deep Learning,Machine Learning,CNN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Note_Imagenet Classification with Deep Convolutional Neural Networks">
+<meta property="og:url" content="https://lrghust.github.io/2017/01/20/imagenet-classification-with-deep-convolutional-neural-networks/index.html">
+<meta property="og:site_name" content="Ruiguang Li">
+<meta property="og:description" content="Paper:Imagenet Classification with Deep Convolutional Neural Networks 文章主要介绍的是作者团队参加ImageNet2010、2012比赛时设计的CNN模型，八层网络用了两块GPU训练了几天的时间。 结构带参数的层共八层：前五层是卷积层，后三层是全连通层；第一二个卷积层后跟响应归一化层；归一化层和第五个卷积层后跟最大池化层。 Fe">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-02-25T08:49:39.813Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Note_Imagenet Classification with Deep Convolutional Neural Networks">
+<meta name="twitter:description" content="Paper:Imagenet Classification with Deep Convolutional Neural Networks 文章主要介绍的是作者团队参加ImageNet2010、2012比赛时设计的CNN模型，八层网络用了两块GPU训练了几天的时间。 结构带参数的层共八层：前五层是卷积层，后三层是全连通层；第一二个卷积层后跟响应归一化层；归一化层和第五个卷积层后跟最大池化层。 Fe">
+    
+
+    
+        <link rel="alternate" href="mailto:lrghust@gmail.com" title="Ruiguang Li" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/images/favicon.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Ruiguang Li</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="https://sites.google.com/view/ruiguangli">CV</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="https://sites.google.com/view/ruiguangli">CV</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/images/avatar.png" />
+            <h2 id="name">Ruiguang Li</h2>
+            <h3 id="title">Undergraduate CS student in HUST lrghust@gmail.com</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Wuhan, China</span>
+            <a id="follow" target="_blank" href="https://github.com/lrghust">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                8
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                14
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/lrghust" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://twitter.com/liruiguang" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://facebook.com/imrgli" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="http://weibo.com/ruiguangli" target="_blank" title="weibo" class=tooltip>
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="mailto:lrghust@gmail.com" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-imagenet-classification-with-deep-convolutional-neural-networks" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Note_Imagenet Classification with Deep Convolutional Neural Networks
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/01/20/imagenet-classification-with-deep-convolutional-neural-networks/">
+            <time datetime="2017-01-20T07:34:24.000Z" itemprop="datePublished">2017-01-20</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/CNN/">CNN</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/CNN/">CNN</a>, <a class="tag-link" href="/tags/Deep-Learning/">Deep Learning</a>, <a class="tag-link" href="/tags/Machine-Learning/">Machine Learning</a>, <a class="tag-link" href="/tags/Note/">Note</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Paper:Imagenet Classification with Deep Convolutional Neural Networks</p>
+<p>文章主要介绍的是作者团队参加ImageNet2010、2012比赛时设计的CNN模型，八层网络用了两块GPU训练了几天的时间。</p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>带参数的层共八层：前五层是卷积层，后三层是全连通层；第一二个卷积层后跟响应归一化层；归一化层和第五个卷积层后跟最大池化层。</p>
+<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul>
+<li>ReLU:faster、no input nomalization</li>
+<li>Multi-GPUs：并行</li>
+<li>LRN:</li>
+<li>重叠池化：降维、减少过拟合</li>
+</ul>
+<p>一般的CNN模型面临的问题：过拟合、训练速度、硬件限制</p>
+<h4 id="作者采用的减少过拟合的方法："><a href="#作者采用的减少过拟合的方法：" class="headerlink" title="作者采用的减少过拟合的方法："></a>作者采用的减少过拟合的方法：</h4><pre><code>1、扩充训练集：
+    a.在训练图上随机截取较小的图
+    b.改变图像RGB灰度值
+2、dropout:通常以0.5的概率将隐藏层结点输出置0,减少结点之间依赖关系;作者采用将所有结点输出乘0.5
+</code></pre><h2 id="一些想法"><a href="#一些想法" class="headerlink" title="一些想法"></a>一些想法</h2><p>文章感觉就是在介绍自己的模型，有一种读科普文章的感觉，大多是介绍性的文字，感觉做笔记就基本上是在翻译论文了。</p>
+<p>文章提到这八层网络，去掉任意一层准确率都会下降，并且作者采用的网络受限于GPU的内存至多设计了这八层，那么提高准确率最显而易见的方法就是采用更大的GPU集群设计更深层次的网络模型，但是这样应该成本会很高而且训练时间会很长；</p>
+<p>关于激活函数，作者采用的ReLU激活函数也是目前大多数CNN采用的激活函数，相较于传统sigmoid、tanh函数在就有很大提升，具备稀疏性。</p>
+<p>大规模的训练集、深层次的网络模型和训练时间存在着矛盾，一方面大规模的训练集显然有助于识别准确率的提升，减少过拟合现象，但是影响整体训练时间；深层次的网络会造成过拟合现象，也需要更长时间的训练时间，然而无论从识别结果还是模拟脑神经网络结构来看，足够深层次的网络对于识别系统是必要的；那么减少训练时间的方法，应该就从这两个角度来考虑，如何降低数据集的规模，用更小的训练规模获得更好的训练效果；如何优化网络模型，在现有硬件限制下采用更简单的模型得到同等效果或同等规模的网络模型获得更好的训练效果。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>隔了比较长一段时间才来整理笔记，很多细节遗漏了，以后有时间再补充吧，基本上就是这些内容，学习的也还不多了解的也比较有限，基本上就是对CNN模型有了一个比较宏观和整体上的理解。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://lrghust.github.io/2017/01/20/imagenet-classification-with-deep-convolutional-neural-networks/" data-id="cje2kmaxu00064pwd3e7oat93" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://lrghust.github.io/2017/01/20/imagenet-classification-with-deep-convolutional-neural-networks/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://lrghust.github.io/2017/01/20/imagenet-classification-with-deep-convolutional-neural-networks/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/01/20/fast-r-cnn/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Note_Fast R-CNN
+                
+            </div>
+        </a>
+    
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CNN/">CNN</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CNN/NMS/">NMS</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Graph/">Graph</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SeqNMS/">SeqNMS</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/SeqNMS/Code/">Code</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Stereo/">Stereo</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CNN/">CNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Calibrate/">Calibrate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code/">Code</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Distance/">Distance</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fast-R-CNN/">Fast R-CNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graph/">Graph</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NMS/">NMS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SeqNMS/">SeqNMS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stereo-Camera/">Stereo Camera</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Video/">Video</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Video-Object-Detection/">Video Object Detection</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/Calibrate/" style="font-size: 10px;">Calibrate</a> <a href="/tags/Code/" style="font-size: 16.67px;">Code</a> <a href="/tags/Deep-Learning/" style="font-size: 16.67px;">Deep Learning</a> <a href="/tags/Distance/" style="font-size: 10px;">Distance</a> <a href="/tags/Fast-R-CNN/" style="font-size: 10px;">Fast R-CNN</a> <a href="/tags/Graph/" style="font-size: 10px;">Graph</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/NMS/" style="font-size: 10px;">NMS</a> <a href="/tags/Note/" style="font-size: 20px;">Note</a> <a href="/tags/SeqNMS/" style="font-size: 16.67px;">SeqNMS</a> <a href="/tags/Stereo-Camera/" style="font-size: 10px;">Stereo Camera</a> <a href="/tags/Video/" style="font-size: 10px;">Video</a> <a href="/tags/Video-Object-Detection/" style="font-size: 13.33px;">Video Object Detection</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://blog.codedragon.tech">Zhihao Chen</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://jonassenli.com">Muchen Li</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/06/26/softnms/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CNN/">CNN</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/CNN/NMS/">NMS</a></p>
+                            <p class="item-title"><a href="/2017/06/26/softnms/" class="title">Soft-NMS</a></p>
+                            <p class="item-date"><time datetime="2017-06-26T11:24:26.000Z" itemprop="datePublished">2017-06-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/04/23/update-seq-nms/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SeqNMS/">SeqNMS</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/SeqNMS/Code/">Code</a></p>
+                            <p class="item-title"><a href="/2017/04/23/update-seq-nms/" class="title">Update_Seq-NMS</a></p>
+                            <p class="item-date"><time datetime="2017-04-23T03:13:51.000Z" itemprop="datePublished">2017-04-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/04/20/densesubgraph/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Graph/">Graph</a></p>
+                            <p class="item-title"><a href="/2017/04/20/densesubgraph/" class="title">Dense Subgraph</a></p>
+                            <p class="item-date"><time datetime="2017-04-20T10:37:56.000Z" itemprop="datePublished">2017-04-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/02/19/stereo/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Stereo/">Stereo</a></p>
+                            <p class="item-title"><a href="/2017/02/19/stereo/" class="title">Stereo Camera</a></p>
+                            <p class="item-date"><time datetime="2017-02-19T15:42:55.000Z" itemprop="datePublished">2017-02-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/02/19/seq-nms-implementation/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SeqNMS/">SeqNMS</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/SeqNMS/Code/">Code</a></p>
+                            <p class="item-title"><a href="/2017/02/19/seq-nms-implementation/" class="title">Implement the method of Seq-NMS</a></p>
+                            <p class="item-date"><time datetime="2017-02-19T15:20:01.000Z" itemprop="datePublished">2017-02-19</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 Ruiguang Li<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'https://lrghust.github.io/2017/01/20/imagenet-classification-with-deep-convolutional-neural-networks/';
+        
+        this.page.identifier = 'imagenet-classification-with-deep-convolutional-neural-networks';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'lrghust' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

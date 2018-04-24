@@ -18,7 +18,7 @@
   
   
   
-    <meta name="description" content="Welcome to my blog!">
+    <meta name="description" content="I'm Ruiguang Li(李睿光), a third-year undergraduate CS student in HUST. Contact me at lrghust [at] gmail [dot] com">
   
   <title>Category: Graph [ Ruiguang Li ]</title>
   
@@ -73,7 +73,7 @@
           
             <li>
           
-            <a href="https://sites.google.com/view/ruiguangli">About</a>
+            <a href="https://blog.ruiguangli.com/about">About</a>
             
           </li>
         
@@ -99,6 +99,8 @@
   <article id="page">
     
       
+    
+      
         <h1 class="center-title">
           Category
           
@@ -113,16 +115,7 @@
     
       
     
-      
-    
     <ul class="category-list">
-      
-        <li class="category-list-item">
-        
-          <a class="active" href="/categories/Graph/">Graph</a>
-        
-          <span class="category-list-count">1</span>
-        </li>
       
         <li class="category-list-item">
         
@@ -133,9 +126,23 @@
       
         <li class="category-list-item">
         
+          <a class="active" href="/categories/Graph/">Graph</a>
+        
+          <span class="category-list-count">1</span>
+        </li>
+      
+        <li class="category-list-item">
+        
           <a href="/categories/SeqNMS/">SeqNMS</a>
         
           <span class="category-list-count">3</span>
+        </li>
+      
+        <li class="category-list-item">
+        
+          <a href="/categories/CNN/NMS/">NMS</a>
+        
+          <span class="category-list-count">1</span>
         </li>
       
         <li class="category-list-item">
@@ -152,14 +159,13 @@
           <span class="category-list-count">2</span>
         </li>
       
-        <li class="category-list-item">
-        
-          <a href="/categories/CNN/NMS/">NMS</a>
-        
-          <span class="category-list-count">1</span>
-        </li>
-      
     </ul>
+    
+      
+      
+        
+      
+      
     
       
       
@@ -224,12 +230,6 @@
       
         
       
-      
-    
-      
-      
-        
-      
         
       
       
@@ -238,11 +238,11 @@
       
         
       
-        
-      
       
     
       
+      
+        
       
         
       
@@ -287,7 +287,7 @@
 <div id="user-card">
   <div class="center-field">
     <img class="avatar" src="https://ruigli.files.wordpress.com/2018/04/head-e1524538855144.png">
-    <p id="description">Welcome to my blog!</p>
+    <p id="description">I'm Ruiguang Li(李睿光), a third-year undergraduate CS student in HUST. Contact me at lrghust [at] gmail [dot] com</p>
     <ul class="social-icon">
   
   
@@ -328,8 +328,6 @@
 </div>
 
 
-<div id="btn-view">Hide</div>
-
 <script>
 // is trigger analytics / tongji script
 var isIgnoreHost = false;
@@ -367,22 +365,6 @@ var isTriggerAnalytics = !( true && isIgnoreHost );
   
 
 <script>
-
-  // fancybox
-  var backgroundImages = [];
-  
-  $('#post').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
-      var alt = this.alt || this.title;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'post' + i);
-    });
-  });
-  $(".fancybox").fancybox();
 
 var vegasConfig = {"preload­Image":true,"transition":["slideLeft2","slideRight2","flash2"],"timer":true,"delay":5000,"shuffle":true,"count":28};
 var unsplashConfig = {"gravity":"north"};

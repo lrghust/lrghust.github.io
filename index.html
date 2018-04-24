@@ -1,1683 +1,258 @@
-<!DOCTYPE html>
-<html lang=en>
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    
-    <title>Ruiguang Li</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ruiguang Li">
+  
+  
+  
+  
     <meta name="description" content="Welcome to my blog!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ruiguang Li">
-<meta property="og:url" content="https://lrghust.github.io/index.html">
-<meta property="og:site_name" content="Ruiguang Li">
-<meta property="og:description" content="Welcome to my blog!">
-<meta property="og:locale" content="en">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ruiguang Li">
-<meta name="twitter:description" content="Welcome to my blog!">
-    
-
-    
-        <link rel="alternate" href="mailto:lrghust@gmail.com" title="Ruiguang Li" type="application/atom+xml" />
-    
-
-    
-        <link rel="icon" href="/images/favicon.png" />
-    
-
-    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/libs/open-sans/styles.css">
-    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
-
-    <link rel="stylesheet" href="/css/style.css">
-
-    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
-    
-    
-        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
-    
-    
-        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
-    
-    
-    
-    
-
-
+  
+  <title> [ Ruiguang Li ]</title>
+  
+  
+    <link rel="shortcut icon" href="https://ruigli.files.wordpress.com/2018/04/head-e1524538855144.png">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+  
 </head>
 
-<body>
-    <div id="container">
-        <header id="header">
-    <div id="header-main" class="header-inner">
-        <div class="outer">
-            <a href="/" id="logo">
-                <i class="logo"></i>
-                <span class="site-title">Ruiguang Li</span>
-            </a>
-            <nav id="main-nav">
-                
-                    <a class="main-nav-link" href="/.">Home</a>
-                
-                    <a class="main-nav-link" href="/archives">Archives</a>
-                
-                    <a class="main-nav-link" href="/categories">Categories</a>
-                
-                    <a class="main-nav-link" href="/tags">Tags</a>
-                
-                    <a class="main-nav-link" href="https://sites.google.com/view/ruiguangli">CV</a>
-                
-            </nav>
-            
-                
-                <nav id="sub-nav">
-                    <div class="profile" id="profile-nav">
-                        <a id="profile-anchor" href="javascript:;">
-                            <img class="avatar" src="/img/avatar.png" />
-                            <i class="fa fa-caret-down"></i>
-                        </a>
-                    </div>
-                </nav>
-            
-            <div id="search-form-wrap">
-
-    <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
+<div class="random-center hide-area">
+  <div id="random-index">
+    <div class="center-field">
+      <img class="avatar" src="https://ruigli.files.wordpress.com/2018/04/head-e1524538855144.png" width=120 height=120 onClick="openUserCard()">
     </div>
+    <div class="center-field">
+      <div class="title" onClick="openUserCard()">Ruiguang Li</div>
+      <div class="sub-title" onClick="openUserCard()"></div>
+    </div>
+    <hr >
+    <div class="center-field">
+      <ul class="index-nav-link">
+        
+        
+          
+            <li><a href="http://www.ruiguangli.com">Home</a></li>
+          
+        
+          
+            <li><a href="https://blog.ruiguangli.com">Blog</a></li>
+          
+        
+          
+            <li><a href="https://sites.google.com/view/ruiguangli">About</a></li>
+          
+        
+          
+            <li><a href="https://github.com/lrghust">Github</a></li>
+          
+        
+      </ul>
+      <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/lrghust">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://weibo.com/ruiguangli">
+        
+          <i class="icon iconfont weibo">&#xe602;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/liruiguang">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.facebook.com/imrgli">
+        
+          <i class="icon iconfont facebook">&#xe604;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+    </div>
+  </div>
 </div>
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="https://ruigli.files.wordpress.com/2018/04/head-e1524538855144.png">
+    <p id="description">Welcome to my blog!</p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/lrghust">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://weibo.com/ruiguangli">
+        
+          <i class="icon iconfont weibo">&#xe602;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/liruiguang">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.facebook.com/imrgli">
+        
+          <i class="icon iconfont facebook">&#xe604;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
 <script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
 </script>
-<script src="/js/insight.js"></script>
-
-</div>
-        </div>
-    </div>
-    <div id="main-nav-mobile" class="header-sub header-inner">
-        <table class="menu outer">
-            <tr>
-                
-                    <td><a class="main-nav-link" href="/.">Home</a></td>
-                
-                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
-                
-                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
-                
-                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
-                
-                    <td><a class="main-nav-link" href="https://sites.google.com/view/ruiguangli">CV</a></td>
-                
-                <td>
-                    
-    <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
-    </div>
-
-                </td>
-            </tr>
-        </table>
-    </div>
-</header>
-
-        <div class="outer">
-            
-                
-
-<aside id="profile">
-    <div class="inner profile-inner">
-        <div class="base-info profile-block">
-            <img id="avatar" src="/img/avatar.png" />
-            <h2 id="name">Ruiguang Li</h2>
-            <h3 id="title">Undergraduate CS student in HUST lrghust@gmail.com</h3>
-            <span id="location"><i class="fa fa-map-marker"></i>Wuhan, China</span>
-            <a id="follow" target="_blank" href="https://github.com/lrghust">FOLLOW</a>
-        </div>
-        <div class="article-info profile-block">
-            <div class="article-info-block">
-                8
-                <span>posts</span>
-            </div>
-            <div class="article-info-block">
-                14
-                <span>tags</span>
-            </div>
-        </div>
-        
-        <div class="profile-block social-links">
-            <table>
-                <tr>
-                    
-                    
-                    <td>
-                        <a href="http://github.com/lrghust" target="_blank" title="github" class=tooltip>
-                            <i class="fa fa-github"></i>
-                        </a>
-                    </td>
-                    
-                    <td>
-                        <a href="https://twitter.com/liruiguang" target="_blank" title="twitter" class=tooltip>
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                    </td>
-                    
-                    <td>
-                        <a href="https://facebook.com/imrgli" target="_blank" title="facebook" class=tooltip>
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                    </td>
-                    
-                    <td>
-                        <a href="http://weibo.com/ruiguangli" target="_blank" title="weibo" class=tooltip>
-                            <i class="fa fa-weibo"></i>
-                        </a>
-                    </td>
-                    
-                    <td>
-                        <a href="mailto:lrghust@gmail.com" target="_blank" title="rss" class=tooltip>
-                            <i class="fa fa-rss"></i>
-                        </a>
-                    </td>
-                    
-                </tr>
-            </table>
-        </div>
-        
-    </div>
-</aside>
-
-            
-            <section id="main">
-    <article id="post-softnms" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/06/26/softnms/">Soft-NMS</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/06/26/softnms/">
-            <time datetime="2017-06-26T11:24:26.000Z" itemprop="datePublished">2017-06-26</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/CNN/">CNN</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/CNN/NMS/">NMS</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/NMS/">NMS</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="Note-Improving-Object-Detection-With-One-Line-of-Code"><a href="#Note-Improving-Object-Detection-With-One-Line-of-Code" class="headerlink" title="Note - Improving Object Detection With One Line of Code"></a>Note - Improving Object Detection With One Line of Code</h2><blockquote>
-<p>既然本文题目是一行代码改进目标识别，那我就用一句话来总结这篇文章的方法:）(其实是懒得写了</p>
-</blockquote>
-<p>本文介绍了一种改进的NMS方法：Soft-NMS，即进行NMS过程中，对于IOU超过阈值的两个bbox，不再直接丢弃而是降低其score，IOU越高降低的越多，嗯，就这样。</p>
-<p>（文章介绍了两种函数，第一种在IOU超过阈值时是线性的，第二种是非线性但连续的，如图）<br><img src="/img/posts/softnms-1.png" alt="1"><br><img src="/img/posts/softnms-2.png" alt="2"></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
 
 
 
-</div>
 
-    <a data-url="https://lrghust.github.io/2017/06/26/softnms/" data-id="cje2kumsi000ba3wdv65dtaew" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
 <script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
 
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
 
-            if ($('#' + id).length) {
-                box = $('#' + id);
+var vegasConfig = {"preload­Image":true,"transition":["slideLeft2","slideRight2","flash2"],"timer":true,"delay":5000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
 
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
+  turnoffBackgroundImage = true;
 
-              box = $(html);
 
-              $('body').append(box);
-            }
 
-            $('.article-share-box.on').hide();
 
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
+var backgroundColor = "34495E";
 
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
 
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
 </script>
-
-            
-    
-        <a href="https://lrghust.github.io/2017/06/26/softnms/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://lrghust.github.io/2017/06/26/softnms/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-update-seq-nms" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/04/23/update-seq-nms/">Update_Seq-NMS</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/04/23/update-seq-nms/">
-            <time datetime="2017-04-23T03:13:51.000Z" itemprop="datePublished">2017-04-23</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SeqNMS/">SeqNMS</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/SeqNMS/Code/">Code</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Code/">Code</a>, <a class="tag-link" href="/tags/SeqNMS/">SeqNMS</a>, <a class="tag-link" href="/tags/Video-Object-Detection/">Video Object Detection</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h1 id="Update-Implementation-of-Seq-NMS"><a href="#Update-Implementation-of-Seq-NMS" class="headerlink" title="Update: Implementation of Seq-NMS"></a>Update: Implementation of Seq-NMS</h1><blockquote>
-<p>Only used for self-learning</p>
-</blockquote>
-<p>I implement the method Seq-NMS mentioned in paper: SEQ-NMS FOR VIDEO OBJECT DETECTION based on the Faster-RCNN. You can see it on my <a href="https://github.com/lrghust/Seq-NMS" target="_blank" rel="noopener">github</a>.</p>
-<p>As for the detection in a single frame, I use the demo program and pre-trained network given by Faster-RCNN to run the detection in each frame in a video.</p>
-<p>Follow the demo instruction given by <a href="https://github.com/smallcorgi/Faster-RCNN_TF" target="_blank" rel="noopener">Faster-RCNN</a>, and replace the demo.py file by the seqnms.py given here.</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://lrghust.github.io/2017/04/23/update-seq-nms/" data-id="cje2kumso000ga3wdzuvlnao3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://lrghust.github.io/2017/04/23/update-seq-nms/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://lrghust.github.io/2017/04/23/update-seq-nms/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-densesubgraph" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/04/20/densesubgraph/">Dense Subgraph</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/04/20/densesubgraph/">
-            <time datetime="2017-04-20T10:37:56.000Z" itemprop="datePublished">2017-04-20</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Graph/">Graph</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Graph/">Graph</a>, <a class="tag-link" href="/tags/Note/">Note</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h1 id="稠密子图问题"><a href="#稠密子图问题" class="headerlink" title="稠密子图问题"></a>稠密子图问题</h1><p>最近要来做关于这个的算法，于是不得不来看图论的问题（真叫人头大.jpg）</p>
-<h2 id="Goldberg算法"><a href="#Goldberg算法" class="headerlink" title="Goldberg算法"></a>Goldberg算法</h2><ol>
-<li><p>构建网络N：</p>
-<p> 将图G转变为如下的网络N=($V_N,E_N$)：<br> 向图G的顶点集中添加源点s和汇点t，将图G中的每一条（无向）边替换为两条容量为1的有向边，将s分别以容量为m的有向边指向图G中的每个顶点，将图G中的每个顶点以容量为(m+2g-$d_i$)的有向边指向t</p>
-</li>
-<li><p>将得到的网络N的顶点集$V_N$划分为两个子集S和T，使得s$\in$S且t$\in$T，得到了一个s-t割。令$V_1$=S-{s}, $V_2$=T-{t}，若|$V_1$|=0，则割的各边总容量为c(S,T)=m|V|, 否则为（略去。。。）</p>
-<p> 得到$c(S,T)=m|V|+2|V_1|(g-D_1)$,其中$D_1$为图G由点集$V_1$导出的子图的密度</p>
-</li>
-<li><p>若对于图G的子图G’有密度D’，且没有其他子图的密度大于或等于$D’+\dfrac{1}{n(n-1)}$，则G’为最大稠密子图</p>
-</li>
-</ol>
-<ul>
-<li><strong>对于带权（整数）无向图</strong></li>
-</ul>
-<p>G中的边的容量改为对应的边的权值，顶点度$d_i$改为该顶点相连的边权值之和，以u=W为起点开始搜索，其中W为图G的所有边权值之和。</p>
-<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">l=<span class="number">0</span>;u=m;V1=<span class="keyword">empty</span>; <span class="comment">//m为边数，在带权图中改为权值和</span></span><br><span class="line"><span class="keyword">while</span> u-l&gt;=<span class="number">1</span>/(n*(n-<span class="number">1</span>)) <span class="keyword">do</span></span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">	g=(u+l)/<span class="number">2</span></span><br><span class="line">	Construct N=(Vn,En)</span><br><span class="line">	Find min-cut(S,T)</span><br><span class="line">	<span class="keyword">if</span> S=<span class="comment">&#123;s&#125;</span> <span class="keyword">then</span> u=g</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	<span class="keyword">begin</span></span><br><span class="line">		l=g</span><br><span class="line">		V1=S-<span class="comment">&#123;s&#125;</span></span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">return (subgraph <span class="keyword">of</span> G induced <span class="keyword">by</span> V1)</span><br></pre></td></tr></table></figure>
-<h3 id="最小割／最大流算法"><a href="#最小割／最大流算法" class="headerlink" title="最小割／最大流算法"></a>最小割／最大流算法</h3><h4 id="Stoer-Wagner算法"><a href="#Stoer-Wagner算法" class="headerlink" title="Stoer-Wagner算法"></a>Stoer-Wagner算法</h4><ol>
-<li>min=MAXINT，固定一个顶点P</li>
-<li>从点P用类似prim的算法扩展出“最大生成树”，记录最后扩展的顶点和最后扩展的边</li>
-<li>计算最后扩展到的顶点的切割值（即与此顶点相连的所有边权和），若比min小更新min</li>
-<li>合并最后扩展的那条边的两个端点为一个顶点（边也要合并）</li>
-<li>转到2，合并N-1次后结束</li>
-<li>min即为所求，输出min</li>
-</ol>
-<p>呃。。。然而写完了才发现这个算法不能用。。这个是算无向图的orz</p>
-<blockquote>
-<p>由于最小割最大流定理，这里通过求最大流来得到最小割</p>
-</blockquote>
-<h4 id="Edmonds-Karp算法"><a href="#Edmonds-Karp算法" class="headerlink" title="Edmonds-Karp算法"></a>Edmonds-Karp算法</h4><ol>
-<li>从源点s开始做BFS，找到s到t的最短路且每条边容量要大于0，这里称之为增广路</li>
-<li>最短路上每条边的容量减去其中最小的一个容量，每条反向边加上这个容量，最大流值加上这个容量</li>
-<li>重复1、2，直到找不到s到t的增广路</li>
-<li>此时s可达的所有顶点构成最小割导致的图一部分顶点，剩下的顶点构成另一部分</li>
-</ol>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://lrghust.github.io/2017/04/20/densesubgraph/" data-id="cje2kumr20000a3wddmx4a21u" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://lrghust.github.io/2017/04/20/densesubgraph/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://lrghust.github.io/2017/04/20/densesubgraph/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-stereo" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/02/19/stereo/">Stereo Camera</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/19/stereo/">
-            <time datetime="2017-02-19T15:42:55.000Z" itemprop="datePublished">2017-02-19</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Stereo/">Stereo</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Calibrate/">Calibrate</a>, <a class="tag-link" href="/tags/Code/">Code</a>, <a class="tag-link" href="/tags/Distance/">Distance</a>, <a class="tag-link" href="/tags/Stereo-Camera/">Stereo Camera</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>Calibrate a stereo camera and measure distance.</p>
-<p>You can see it on my <a href="https://github.com/lrghust/StereoCamera" target="_blank" rel="noopener">github</a>.</p>
-<p>Main part of classes originate from <a href="https://github.com/yuhuazou/StereoVision" target="_blank" rel="noopener">StereoVision</a> given by yuhuazou.</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://lrghust.github.io/2017/02/19/stereo/" data-id="cje2kumsl000ca3wdzwvacdb5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://lrghust.github.io/2017/02/19/stereo/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://lrghust.github.io/2017/02/19/stereo/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-seq-nms-implementation" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/02/19/seq-nms-implementation/">Implement the method of Seq-NMS</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/19/seq-nms-implementation/">
-            <time datetime="2017-02-19T15:20:01.000Z" itemprop="datePublished">2017-02-19</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SeqNMS/">SeqNMS</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/SeqNMS/Code/">Code</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Code/">Code</a>, <a class="tag-link" href="/tags/SeqNMS/">SeqNMS</a>, <a class="tag-link" href="/tags/Video-Object-Detection/">Video Object Detection</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>I implement the method Seq-NMS mentioned in paper: SEQ-NMS FOR VIDEO OBJECT DETECTION based on the Faster-RCNN. You can go to my <a href="https://github.com/lrghust/Seq-NMS" target="_blank" rel="noopener">github</a> to see it.</p>
-<p>Without a good computer to train a network, I use the demo program and pre-trained network given by Faster-RCNN to do the detection in each frame in a video.</p>
-<p>If you want to use it, follow the demo instruction given by <a href="https://github.com/smallcorgi/Faster-RCNN_TF" target="_blank" rel="noopener">Faster-RCNN</a>, and replace the demo.py file by the video.py given here.</p>
-<p>PS: It will be very very slow to detect a video…</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://lrghust.github.io/2017/02/19/seq-nms-implementation/" data-id="cje2kums80006a3wdlt6ttadm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://lrghust.github.io/2017/02/19/seq-nms-implementation/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://lrghust.github.io/2017/02/19/seq-nms-implementation/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-seq-nms" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/02/13/seq-nms/">Note_SEQ-NMS for Video Object Detection</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/13/seq-nms/">
-            <time datetime="2017-02-13T15:25:59.000Z" itemprop="datePublished">2017-02-13</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SeqNMS/">SeqNMS</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Deep-Learning/">Deep Learning</a>, <a class="tag-link" href="/tags/Machine-Learning/">Machine Learning</a>, <a class="tag-link" href="/tags/Note/">Note</a>, <a class="tag-link" href="/tags/SeqNMS/">SeqNMS</a>, <a class="tag-link" href="/tags/Video/">Video</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h3 id="Object-detection-in-single-image"><a href="#Object-detection-in-single-image" class="headerlink" title="Object detection in single image"></a>Object detection in single image</h3><ol>
-<li>Object proposal generation</li>
-<li>Object classification</li>
-<li>Post-processing</li>
-</ol>
-<h3 id="Difficulties-of-object-detection-in-video"><a href="#Difficulties-of-object-detection-in-video" class="headerlink" title="Difficulties of object detection in video"></a>Difficulties of object detection in video</h3><ol>
-<li>Drastic scale changes</li>
-<li>Occlusion</li>
-<li>Motion blur</li>
-</ol>
-<h2 id="This-Paper"><a href="#This-Paper" class="headerlink" title="This Paper"></a>This Paper</h2><p>Present Seq-NMS, a method to improve object detection pipelines for video data, and evaluate Seq-NMS on ImageNet VID dataset.</p>
-<p>About Seq-NMS: modify the post-processing phase to use high-scoring object detections from nearby frames in order to boost scores of weaker detections within the same clip</p>
-<h2 id="Main-contribution"><a href="#Main-contribution" class="headerlink" title="Main contribution"></a>Main contribution</h2><ol>
-<li>present SEQ-NMS: a new method to improve object detection pipelines for video data.<strong>Use high-scoring object detections from nearby frames in order to boost scores of weaker detections within the same clip.</strong></li>
-<li>evaluate SEQ-NMS</li>
-</ol>
-<h2 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h2><ul>
-<li>combine individual detections into sequences, and then use the sequences to re-score individual bounding boxes</li>
-</ul>
-<ol>
-<li>for a pair of frames, if the IoU of two boxes of same class from two frames is above a threshold, the box in the first frame is linked with the second</li>
-<li>Throughout the whole video, we get box chains following the method above</li>
-<li>get the maximum score chain</li>
-<li>rescore by the maximum score in the sequence or the average score</li>
-<li>remove the link and repeat the above step until length 1 sequence remain</li>
-</ol>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://lrghust.github.io/2017/02/13/seq-nms/" data-id="cje2kumsd0008a3wdocxr13ld" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://lrghust.github.io/2017/02/13/seq-nms/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://lrghust.github.io/2017/02/13/seq-nms/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-fast-r-cnn" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/20/fast-r-cnn/">Note_Fast R-CNN</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/01/20/fast-r-cnn/">
-            <time datetime="2017-01-20T07:55:33.000Z" itemprop="datePublished">2017-01-20</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/CNN/">CNN</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Deep-Learning/">Deep Learning</a>, <a class="tag-link" href="/tags/Fast-R-CNN/">Fast R-CNN</a>, <a class="tag-link" href="/tags/Machine-Learning/">Machine Learning</a>, <a class="tag-link" href="/tags/Note/">Note</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>Paper: Fast R-CNN</p>
-<h2 id="R-CNN"><a href="#R-CNN" class="headerlink" title="R-CNN"></a>R-CNN</h2><h3 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h3><ol>
-<li>Object Detection</li>
-<li>Object Recognition</li>
-</ol>
-<h3 id="Drawbacks"><a href="#Drawbacks" class="headerlink" title="Drawbacks"></a>Drawbacks</h3><ol>
-<li>Multi-stage</li>
-<li>Expensive in space and time</li>
-<li>Slow: no sharing computation</li>
-</ol>
-<h3 id="Two-Challenges-in-Object-Detection"><a href="#Two-Challenges-in-Object-Detection" class="headerlink" title="Two Challenges in Object Detection"></a>Two Challenges in Object Detection</h3><ol>
-<li>Numerous proposals</li>
-<li>Rough localization needs to be refined</li>
-</ol>
-<h2 id="This-paper"><a href="#This-paper" class="headerlink" title="This paper:"></a>This paper:</h2><ul>
-<li>A single-stage training algorithm: classify proposals and refine locations</li>
-</ul>
-<h2 id="SPPnet"><a href="#SPPnet" class="headerlink" title="SPPnet"></a>SPPnet</h2><h3 id="Drawbacks-1"><a href="#Drawbacks-1" class="headerlink" title="Drawbacks"></a>Drawbacks</h3><ol>
-<li>Multi-stage pipeline: extracting features -&gt; fine-tuning a network with log loss -&gt; training SVMs -&gt; fitting bounding-box regressors</li>
-<li>Cannot update convolutional layers, limits the accuracy of very deep networks</li>
-</ol>
-<h2 id="Fast-R-CNN"><a href="#Fast-R-CNN" class="headerlink" title="Fast R-CNN"></a>Fast R-CNN</h2><h3 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h3><ol>
-<li>Higher detection quality</li>
-<li>Single-stage,multi-task loss</li>
-<li>Update all network layers</li>
-<li>No disk storage</li>
-</ol>
-<h3 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h3><ol>
-<li>Input: Take an entire image and object proposals as input</li>
-<li>A feature map: by processing the whole image with several conv layers and max pooling layers</li>
-<li>Feature vector: fixed-length, extracted from the feature map by a RoI pooling layer for each object proposal</li>
-<li>Two output layers: each feature vector fed into FCs, branch into two output layers:<ul>
-<li>K classes softmax layer + a catch-all class</li>
-<li>Four-tuple, refined bounding-box position for one of the K classes</li>
-</ul>
-</li>
-</ol>
-<h4 id="RoI-pooling-layer"><a href="#RoI-pooling-layer" class="headerlink" title="RoI pooling layer"></a>RoI pooling layer</h4><p>Divide the h<em> w RoI window into an H</em> W grid, size of sub-window is h/H*w/W, do max-pooling in each sub-window</p>
-<h4 id="Transform-a-pre-trained-network-to-a-Fast-R-CNN"><a href="#Transform-a-pre-trained-network-to-a-Fast-R-CNN" class="headerlink" title="Transform a pre-trained network to a Fast R-CNN"></a>Transform a pre-trained network to a Fast R-CNN</h4><ol>
-<li>Replace the last max-pooling layer by RoI pooling layer</li>
-<li>Replace the last fully connected layer and softmax by the two output layers mentioned above(K+1 softmax and bounding-box regressors)</li>
-<li>Replace the input by a whole image and RoIs</li>
-</ol>
-<h4 id="Multi-task-loss"><a href="#Multi-task-loss" class="headerlink" title="Multi-task loss"></a>Multi-task loss</h4><p>Note two outputs as classification and location</p>
-<ul>
-<li>classification: p=(p0,p1,…,pK), a discrete probability distribution over K+1 classes</li>
-<li>location: tk=(txk,tyk,twk,thk), bounding-box regression offsets, for K classes</li>
-</ul>
-<p>Each training RoI is labeled: u - ground-truth class v - ground-truth bounding-box regression target</p>
-<p><strong>Multi-task loss L:</strong><br><img src="/img/posts/multi-task-loss.png" alt="Multi-task loss"></p>
-<pre><code>Lcls: log loss for u
-lamda[]: Iverson function
-Lloc(tu,v)=Sigma smoothL1(tiu-vi)
-smoothL1(x)=0.5x^x, |x|&lt;1
-            |x|-0.5, otherwise
-</code></pre><h4 id="Mini-batch-sampling"><a href="#Mini-batch-sampling" class="headerlink" title="Mini-batch sampling"></a>Mini-batch sampling</h4><ul>
-<li>size of mini-batch: R=128=2*64, consisting of N=2 images and 64 RoIs in each image</li>
-<li>25% of RoIs have IoU over 0.5, foreground object class</li>
-<li>remaining RoIs have IoU between 0.1 and 0.5, background, u=0</li>
-<li>images are flipped horizontally with probability 0.5, aiming to data augmentation</li>
-</ul>
-<h4 id="Backward-function"><a href="#Backward-function" class="headerlink" title="Backward function"></a>Backward function</h4><p><img src="/img/posts/backward_function.png" alt="backward function"></p>
-<pre><code>i* (r,j): the index of output by doing max-pooling on the j-th sub-
-        window, the r-th RoI
-</code></pre><ul>
-<li>if i=i* (r,j), accumulate the partial derivative(with respect to yrj)</li>
-</ul>
-<h3 id="Scale-invariance"><a href="#Scale-invariance" class="headerlink" title="Scale invariance(?)"></a>Scale invariance(?)</h3><ol>
-<li>brute force learning</li>
-<li>image pyramids</li>
-</ol>
-<h2 id="Fast-R-CNN-Detection"><a href="#Fast-R-CNN-Detection" class="headerlink" title="Fast R-CNN Detection"></a>Fast R-CNN Detection</h2><ol>
-<li>take an image(or an image pyramid) and a list of object proposals as input</li>
-<li>run a forward pass to score</li>
-<li>output: a class probability distribution and a set of predicted bounding box offsets</li>
-<li>for each RoI r, using the probability as detection confidence for each class k, then perform non-maximum suppression</li>
-</ol>
-<h3 id="Trancated-SVD"><a href="#Trancated-SVD" class="headerlink" title="Trancated SVD"></a>Trancated SVD</h3><p><img src="/img/posts/Trancated_SVD.png" alt="Trancated SVD"></p>
-<ul>
-<li>Compress large fully connected layers by trancated SVD to accelerate</li>
-<li>replace one fully connected layer corresponding to W by two fc layers, with matrix weight U and ΣtVT respectively</li>
-</ul>
-<h2 id="Design-Evaluation-experimentally"><a href="#Design-Evaluation-experimentally" class="headerlink" title="Design Evaluation(experimentally)"></a>Design Evaluation(experimentally)</h2><ol>
-<li>Multi-task training improves the classification accuracy</li>
-<li>Scale-invariance: Single scale processing offers the best tradeoff between the speed and accuracy</li>
-<li>More-training data improve the detection accuracy. The paper doesn’t mention about the problem of saturating with the increasing of dataset.</li>
-<li>Softmax introduce competetion between classes when scoring a RoI. Softmax slightly outperfoming SVM.</li>
-<li>Proposals: there are two types of object detector:<ul>
-<li>use a <strong>sparse</strong> set of proposals: improves Fast R-CNN accuracy</li>
-<li>use a <strong>dense</strong> set of proposals</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>Using selective search, the accuracy improves first and falls slightly soon with the increasing number of proposals</li>
-<li>Using densely generated boxes, adding random dense boxes and using only dense boxes all decrease the detection quality</li>
-</ul>
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>This paper proposes Fast R-CNN, a clean and fast update to RNN and SPPnet.<br>Furthermore, this paper finds that sparse set of proposals improves the detection quality than dense one by using Fast R-CNN. There may exists new ways to allow dense set to perform as well as sparse one, by which we can accelerate object detection and improve the accuracy.</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://lrghust.github.io/2017/01/20/fast-r-cnn/" data-id="cje2kumri0002a3wd7mf5o2h6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://lrghust.github.io/2017/01/20/fast-r-cnn/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://lrghust.github.io/2017/01/20/fast-r-cnn/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-imagenet-classification-with-deep-convolutional-neural-networks" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/20/imagenet-classification-with-deep-convolutional-neural-networks/">Note_Imagenet Classification with Deep Convolutional Neural Networks</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/01/20/imagenet-classification-with-deep-convolutional-neural-networks/">
-            <time datetime="2017-01-20T07:34:24.000Z" itemprop="datePublished">2017-01-20</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/CNN/">CNN</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/CNN/">CNN</a>, <a class="tag-link" href="/tags/Deep-Learning/">Deep Learning</a>, <a class="tag-link" href="/tags/Machine-Learning/">Machine Learning</a>, <a class="tag-link" href="/tags/Note/">Note</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>Paper:Imagenet Classification with Deep Convolutional Neural Networks</p>
-<p>文章主要介绍的是作者团队参加ImageNet2010、2012比赛时设计的CNN模型，八层网络用了两块GPU训练了几天的时间。</p>
-<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>带参数的层共八层：前五层是卷积层，后三层是全连通层；第一二个卷积层后跟响应归一化层；归一化层和第五个卷积层后跟最大池化层。</p>
-<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul>
-<li>ReLU:faster、no input nomalization</li>
-<li>Multi-GPUs：并行</li>
-<li>LRN:</li>
-<li>重叠池化：降维、减少过拟合</li>
-</ul>
-<p>一般的CNN模型面临的问题：过拟合、训练速度、硬件限制</p>
-<h4 id="作者采用的减少过拟合的方法："><a href="#作者采用的减少过拟合的方法：" class="headerlink" title="作者采用的减少过拟合的方法："></a>作者采用的减少过拟合的方法：</h4><pre><code>1、扩充训练集：
-    a.在训练图上随机截取较小的图
-    b.改变图像RGB灰度值
-2、dropout:通常以0.5的概率将隐藏层结点输出置0,减少结点之间依赖关系;作者采用将所有结点输出乘0.5
-</code></pre><h2 id="一些想法"><a href="#一些想法" class="headerlink" title="一些想法"></a>一些想法</h2><p>文章感觉就是在介绍自己的模型，有一种读科普文章的感觉，大多是介绍性的文字，感觉做笔记就基本上是在翻译论文了。</p>
-<p>文章提到这八层网络，去掉任意一层准确率都会下降，并且作者采用的网络受限于GPU的内存至多设计了这八层，那么提高准确率最显而易见的方法就是采用更大的GPU集群设计更深层次的网络模型，但是这样应该成本会很高而且训练时间会很长；</p>
-<p>关于激活函数，作者采用的ReLU激活函数也是目前大多数CNN采用的激活函数，相较于传统sigmoid、tanh函数在就有很大提升，具备稀疏性。</p>
-<p>大规模的训练集、深层次的网络模型和训练时间存在着矛盾，一方面大规模的训练集显然有助于识别准确率的提升，减少过拟合现象，但是影响整体训练时间；深层次的网络会造成过拟合现象，也需要更长时间的训练时间，然而无论从识别结果还是模拟脑神经网络结构来看，足够深层次的网络对于识别系统是必要的；那么减少训练时间的方法，应该就从这两个角度来考虑，如何降低数据集的规模，用更小的训练规模获得更好的训练效果；如何优化网络模型，在现有硬件限制下采用更简单的模型得到同等效果或同等规模的网络模型获得更好的训练效果。</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>隔了比较长一段时间才来整理笔记，很多细节遗漏了，以后有时间再补充吧，基本上就是这些内容，学习的也还不多了解的也比较有限，基本上就是对CNN模型有了一个比较宏观和整体上的理解。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://lrghust.github.io/2017/01/20/imagenet-classification-with-deep-convolutional-neural-networks/" data-id="cje2kumsa0007a3wdaauf2vrn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://lrghust.github.io/2017/01/20/imagenet-classification-with-deep-convolutional-neural-networks/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://lrghust.github.io/2017/01/20/imagenet-classification-with-deep-convolutional-neural-networks/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-</section>
-            
-                
-<aside id="sidebar">
-   
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">archives</h3>
-        <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">2</span></li></ul>
-        </div>
-    </div>
-
-    
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">categories</h3>
-        <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CNN/">CNN</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CNN/NMS/">NMS</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Graph/">Graph</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SeqNMS/">SeqNMS</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/SeqNMS/Code/">Code</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Stereo/">Stereo</a><span class="category-list-count">1</span></li></ul>
-        </div>
-    </div>
-
-    
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">tags</h3>
-        <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CNN/">CNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Calibrate/">Calibrate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code/">Code</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Distance/">Distance</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fast-R-CNN/">Fast R-CNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graph/">Graph</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NMS/">NMS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SeqNMS/">SeqNMS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stereo-Camera/">Stereo Camera</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Video/">Video</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Video-Object-Detection/">Video Object Detection</a><span class="tag-list-count">2</span></li></ul>
-        </div>
-    </div>
-
-    
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">tag cloud</h3>
-        <div class="widget tagcloud">
-            <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/Calibrate/" style="font-size: 10px;">Calibrate</a> <a href="/tags/Code/" style="font-size: 16.67px;">Code</a> <a href="/tags/Deep-Learning/" style="font-size: 16.67px;">Deep Learning</a> <a href="/tags/Distance/" style="font-size: 10px;">Distance</a> <a href="/tags/Fast-R-CNN/" style="font-size: 10px;">Fast R-CNN</a> <a href="/tags/Graph/" style="font-size: 10px;">Graph</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/NMS/" style="font-size: 10px;">NMS</a> <a href="/tags/Note/" style="font-size: 20px;">Note</a> <a href="/tags/SeqNMS/" style="font-size: 16.67px;">SeqNMS</a> <a href="/tags/Stereo-Camera/" style="font-size: 10px;">Stereo Camera</a> <a href="/tags/Video/" style="font-size: 10px;">Video</a> <a href="/tags/Video-Object-Detection/" style="font-size: 13.33px;">Video Object Detection</a>
-        </div>
-    </div>
-
-    
-        
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">links</h3>
-        <div class="widget">
-            <ul>
-                
-                    <li>
-                        <a href="http://blog.codedragon.tech">Zhihao Chen</a>
-                    </li>
-                
-                    <li>
-                        <a href="http://jonassenli.com">Muchen Li</a>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-
-    
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">recent</h3>
-        <div class="widget">
-            <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/06/26/softnms/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/CNN/">CNN</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/CNN/NMS/">NMS</a></p>
-                            <p class="item-title"><a href="/2017/06/26/softnms/" class="title">Soft-NMS</a></p>
-                            <p class="item-date"><time datetime="2017-06-26T11:24:26.000Z" itemprop="datePublished">2017-06-26</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/04/23/update-seq-nms/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/SeqNMS/">SeqNMS</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/SeqNMS/Code/">Code</a></p>
-                            <p class="item-title"><a href="/2017/04/23/update-seq-nms/" class="title">Update_Seq-NMS</a></p>
-                            <p class="item-date"><time datetime="2017-04-23T03:13:51.000Z" itemprop="datePublished">2017-04-23</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/04/20/densesubgraph/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Graph/">Graph</a></p>
-                            <p class="item-title"><a href="/2017/04/20/densesubgraph/" class="title">Dense Subgraph</a></p>
-                            <p class="item-date"><time datetime="2017-04-20T10:37:56.000Z" itemprop="datePublished">2017-04-20</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/02/19/stereo/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Stereo/">Stereo</a></p>
-                            <p class="item-title"><a href="/2017/02/19/stereo/" class="title">Stereo Camera</a></p>
-                            <p class="item-date"><time datetime="2017-02-19T15:42:55.000Z" itemprop="datePublished">2017-02-19</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/02/19/seq-nms-implementation/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/SeqNMS/">SeqNMS</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/SeqNMS/Code/">Code</a></p>
-                            <p class="item-title"><a href="/2017/02/19/seq-nms-implementation/" class="title">Implement the method of Seq-NMS</a></p>
-                            <p class="item-date"><time datetime="2017-02-19T15:20:01.000Z" itemprop="datePublished">2017-02-19</time></p>
-                        </div>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-    
-    <div id="toTop" class="fa fa-angle-up"></div>
-</aside>
-
-            
-        </div>
-        <footer id="footer">
-    <div class="outer">
-        <div id="footer-info" class="inner">
-            &copy; 2018 Ruiguang Li<br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
-        </div>
-    </div>
-</footer>
-        
-    
-    <script>
-    var disqus_config = function () {
-        
-        this.page.identifier = '';
-    };
-    (function() { 
-        var d = document, s = d.createElement('script');  
-        s.src = '//' + 'lrghust' + '.disqus.com/count.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-
-
-
-
-    
-        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
-    
-    
-        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
-    
-    
-        <script type="text/x-mathjax-config">
-            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-    
-
-
-
-<!-- Custom Scripts -->
-<script src="/js/main.js"></script>
-
-    </div>
 </body>
 </html>
+
